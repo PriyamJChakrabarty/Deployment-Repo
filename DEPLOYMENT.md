@@ -47,6 +47,7 @@ Set these on whichever backend host you choose:
 
 - `GROQ_API_KEY`
 - `BACKEND_DATA_DIR=/data`
+- `WHISPER_MODEL=tiny`
 
 Optional:
 
@@ -97,6 +98,7 @@ In `Environment` set:
 
 - `GROQ_API_KEY=...`
 - `BACKEND_DATA_DIR=/data`
+- `WHISPER_MODEL=tiny`
 - `MONGO_URI=...` if you want Mongo
 
 ### 6. Deploy
@@ -164,6 +166,7 @@ Set:
 
 - `GROQ_API_KEY=...`
 - `BACKEND_DATA_DIR=/data`
+- `WHISPER_MODEL=tiny`
 - `MONGO_URI=...` if needed
 
 ### 5. Deploy and verify
@@ -218,6 +221,7 @@ Make sure your `fly.toml` mounts the volume at:
 
 ```powershell
 fly secrets set GROQ_API_KEY=your_key BACKEND_DATA_DIR=/data
+fly secrets set WHISPER_MODEL=tiny
 ```
 
 Optional:

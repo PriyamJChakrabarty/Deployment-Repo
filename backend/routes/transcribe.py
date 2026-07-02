@@ -7,7 +7,17 @@ import whisper
 
 router = APIRouter()
 
-model = whisper.load_model("small")
+WHISPER_MODEL_NAME = os.getenv("WHISPER_MODEL", "tiny")
+model = None
+
+
+def get_model():
+    global model
+
+    if model is None:
+        model = whisper.load_model(WHISPER_MODEL_NAME)
+
+    return model
 
 
 async def transcribe_uploaded_file(file: UploadFile) -> str:
@@ -18,7 +28,7 @@ async def transcribe_uploaded_file(file: UploadFile) -> str:
         with open(file_path, "wb") as f:
             f.write(await file.read())
 
-        result = model.transcribe(file_path, fp16=False, language="en")
+        result = get_model().transcribe(file_path, fp16=False, language="en")
         text = result.get("text", "").strip()
 
         if not text or len(text) < 2 or not any(char.isalpha() for char in text):
