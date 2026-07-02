@@ -5,8 +5,6 @@ openai-whisper
 torch
 groq
 numpy
-faiss-cpu
-sentence-transformers
 pymongo
 python-dotenv
 pymupdf
