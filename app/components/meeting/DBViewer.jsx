@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Database, ChevronDown, ChevronRight, RefreshCw, X, FileText } from "lucide-react";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function DBViewer({ refreshTrigger }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function DBViewer({ refreshTrigger }) {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:8000/api/get-db");
+      const response = await fetch(buildBackendUrl("/api/get-db"));
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

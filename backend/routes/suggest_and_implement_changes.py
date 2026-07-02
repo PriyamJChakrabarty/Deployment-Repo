@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Any, Literal
 
 from groq import Groq
+from utils.paths import data_path
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
@@ -77,7 +78,7 @@ class AnalysisResponse(BaseModel):
     )
 
 router = APIRouter()
-DB_PATH = "db.json" # Assuming db.json is in the root
+DB_PATH = data_path("db.json")
 
 # ---
 # 2. SUGGESTION ENDPOINT
@@ -93,11 +94,11 @@ async def analyze_transcript_against_all_docs(
     """
     
     # --- 1. Load the entire database ---
-    if not os.path.exists(DB_PATH):
+    if not DB_PATH.exists():
         raise HTTPException(status_code=404, detail="db.json not found.")
     
     try:
-        with open(DB_PATH, "r") as f:
+        with DB_PATH.open("r") as f:
             db_content = json.load(f)
         db_json_string = json.dumps(db_content, indent=2)
     except Exception as e:
@@ -190,11 +191,11 @@ async def apply_approved_changes(
     """
     
     # --- 1. Load the entire database (Read) ---
-    if not os.path.exists(DB_PATH):
+    if not DB_PATH.exists():
         raise HTTPException(status_code=404, detail="db.json not found.")
     
     try:
-        with open(DB_PATH, "r") as f:
+        with DB_PATH.open("r") as f:
             db_content = json.load(f)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read db.json: {e}")
@@ -327,7 +328,7 @@ async def apply_approved_changes(
 
     # --- 3. Save the database (Write) ---
     try:
-        with open(DB_PATH, "w") as f:
+        with DB_PATH.open("w") as f:
             json.dump(db_content, f, indent=2)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to write changes to db.json: {e}")
@@ -339,11 +340,11 @@ async def get_database():
     """
     Returns the entire contents of db.json
     """
-    if not os.path.exists(DB_PATH):
+    if not DB_PATH.exists():
         raise HTTPException(status_code=404, detail="Database not found")
     
     try:
-        with open(DB_PATH, "r") as f:
+        with DB_PATH.open("r") as f:
             db_content = json.load(f)
         return db_content
     except Exception as e:

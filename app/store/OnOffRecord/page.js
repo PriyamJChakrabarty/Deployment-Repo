@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
-import DataTable from "./components/DataTable";
-// import LiveRecorder from "./components/LiveRecorder"; // ✅ Added import
-import VoiceRecorder from "./components/VoiceRecorder";
 
+import DataTable from "../../components/meeting/DataTable";
+import VoiceRecorder from "./VoiceRecorder";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 const fetchMappedClauses = async (extractedItems) => {
   const mappingPromises = extractedItems.map(async (item, i) => {
@@ -12,7 +12,7 @@ const fetchMappedClauses = async (extractedItems) => {
     if (!query) return null;
 
     try {
-      const mapRes = await axios.post("http://localhost:8000/api/map_clauses", {
+      const mapRes = await axios.post(buildBackendUrl("/api/map_clauses"), {
         description: query,
       });
       return { key: String(i), clauses: mapRes.data.related_clauses };
@@ -23,8 +23,8 @@ const fetchMappedClauses = async (extractedItems) => {
   });
 
   const mappingResultsArray = await Promise.all(mappingPromises);
-
   const newMappedClauses = {};
+
   mappingResultsArray
     .filter((r) => r)
     .forEach((r) => {
@@ -57,34 +57,34 @@ export default function Home() {
 
   const uploadAudio = async () => {
     if (!file) return alert("Select an audio file first!");
+
     setLoadingTranscribe(true);
     const formData = new FormData();
     formData.append("file", file);
+
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/transcribe",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      const res = await axios.post(buildBackendUrl("/transcribe"), formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       setTranscript(res.data.transcript);
     } catch (err) {
       alert("Transcription error");
       console.error(err);
     }
+
     setLoadingTranscribe(false);
   };
 
   const analyzeTranscript = async () => {
     if (!transcript) return alert("Transcript is empty");
+
     setLoadingExtract(true);
 
     let extractedItems = [];
     let mappedClausesResult = {};
 
     try {
-      const res1 = await axios.post("http://127.0.0.1:8000/api/extract", {
+      const res1 = await axios.post(buildBackendUrl("/api/extract"), {
         transcript,
       });
       setExtractData(res1.data.table);
@@ -94,7 +94,7 @@ export default function Home() {
       mappedClausesResult = await fetchMappedClauses(extractedItems);
       setMappedClauses(mappedClausesResult);
 
-      const res2 = await axios.post("http://127.0.0.1:8000/api/actions", {
+      const res2 = await axios.post(buildBackendUrl("/api/actions"), {
         transcript,
       });
       setActionsData(res2.data.actions);
@@ -117,9 +117,8 @@ export default function Home() {
     <main style={{ padding: "2rem", fontFamily: "Arial" }}>
       <h1>Zudia+ | Legal Meeting Analyzer</h1>
 
-      {/* STEP 1: Upload and Transcribe */}
       <section>
-        <h2>Step 1: Upload Audio → Transcribe</h2>
+        <h2>Step 1: Upload Audio {"->"} Transcribe</h2>
         <input type="file" accept="audio/*" onChange={handleFile} />
         <button
           onClick={uploadAudio}
@@ -130,18 +129,11 @@ export default function Home() {
         </button>
       </section>
 
-      {/* ✅ STEP 1.5: Record Audio Using Recorder.js */}
       <section style={{ marginTop: "2rem" }}>
         <h2>Step 1.5: Record Audio</h2>
-        <VoiceRecorder
-          onTranscriptUpdate={(newText) =>
-            setTranscript((prev) => (prev + " " + newText).trim())
-          }
-        />
+        <VoiceRecorder onTranscriptUpdate={setTranscript} />
       </section>
 
-
-      {/* TRANSCRIPT BOX */}
       <section style={{ marginTop: "2rem" }}>
         <h2>Transcript</h2>
         <textarea
@@ -153,7 +145,6 @@ export default function Home() {
         />
       </section>
 
-      {/* STEP 2: ANALYSIS */}
       <section style={{ marginTop: "2rem" }}>
         <h2>Step 2: Analyze</h2>
         <button onClick={analyzeTranscript} disabled={loadingExtract}>
@@ -161,12 +152,12 @@ export default function Home() {
         </button>
       </section>
 
-      {/* TABLES */}
       <DataTable
         title="Extracted Key Legal Points"
         data={extractData}
         mappedClauses={mappedClauses}
       />
+
       {rawExtract && (
         <details>
           <summary>Raw Gemini Extract Response</summary>
@@ -175,6 +166,7 @@ export default function Home() {
       )}
 
       <DataTable title="Action Items" data={actionsData} />
+
       {rawActions && (
         <details>
           <summary>Raw Gemini Actions Response</summary>

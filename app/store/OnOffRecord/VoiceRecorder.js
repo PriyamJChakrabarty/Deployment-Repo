@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { startRecording, stopRecording } from "./RecorderHelper";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function VoiceRecorder({ onTranscriptUpdate }) {
   const [recording, setRecording] = useState(false);
@@ -23,7 +24,7 @@ export default function VoiceRecorder({ onTranscriptUpdate }) {
         const formData = new FormData();
         formData.append("file", blob, "recording.wav");
 
-        const res = await fetch("http://127.0.0.1:8000/transcribe", {
+        const res = await fetch(buildBackendUrl("/transcribe"), {
           method: "POST",
           body: formData,
         });

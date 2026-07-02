@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Upload, FileAudio } from "lucide-react";
 import axios from "axios";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function AudioUploadSection() {
   const [file, setFile] = useState(null);
@@ -23,13 +24,9 @@ export default function AudioUploadSection() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/transcribe",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      const res = await axios.post(buildBackendUrl("/transcribe"), formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       alert("Transcription completed!");
       console.log(res.data);
     } catch (err) {

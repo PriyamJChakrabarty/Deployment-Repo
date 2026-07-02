@@ -1,6 +1,7 @@
 import axios from "axios";
+import { buildBackendUrl } from "./backend-url";
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = buildBackendUrl("");
 
 export async function sendAudioChunk(chunkBlob) {
   const formData = new FormData();

@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Loader2 } from "lucide-react";
 import axios from "axios";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function DocumentQuery() {
   const [query, setQuery] = useState("");
@@ -16,7 +17,7 @@ export default function DocumentQuery() {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  const API_URL = "http://localhost:8000/api/query-docs";
+  const API_URL = buildBackendUrl("/api/query-docs");
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -73,7 +74,7 @@ export default function DocumentQuery() {
           err.response.data?.detail || `Server error: ${err.response.status}`;
       } else if (err.request) {
         errorText =
-          "Cannot connect to server. Please ensure the backend is running on http://localhost:8000";
+          `Cannot connect to server. Please ensure the backend is running on ${buildBackendUrl("")}`;
       } else {
         errorText = err.message;
       }

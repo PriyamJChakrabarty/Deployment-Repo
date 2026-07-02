@@ -8,6 +8,7 @@ from datetime import date # For date fields in the response model
 
 # --- Groq Client Setup ---
 from groq import Groq
+from utils.paths import backend_path, data_path
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 # ---
@@ -27,8 +28,8 @@ class QueryResponse(BaseModel):
 # ---
 
 router = APIRouter()
-DB_PATH = "db.json" # Assuming db.json is in the root
-EMP_PATH= "employee.json" # Assuming employee.json is in the root
+DB_PATH = data_path("db.json")
+EMP_PATH = backend_path("employee.json")
 
 @router.post("/query-docs", response_model=QueryResponse)
 async def answer_document_query(
@@ -40,21 +41,21 @@ async def answer_document_query(
     """
     
     # --- 1. Load the entire database ---
-    if not os.path.exists(DB_PATH):
+    if not DB_PATH.exists():
         raise HTTPException(status_code=404, detail="db.json not found.")
     
     try:
-        with open(DB_PATH, "r") as f:
+        with DB_PATH.open("r") as f:
             db_content = json.load(f)
         db_json_string = json.dumps(db_content, indent=2)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read or parse db.json: {e}")
 
-    if not os.path.exists(EMP_PATH):
+    if not EMP_PATH.exists():
         raise HTTPException(status_code=404, detail="emp.json not found.")
     
     try:
-        with open(EMP_PATH, "r") as f:
+        with EMP_PATH.open("r") as f:
             emp_content = json.load(f)
         emp_json_string = json.dumps(emp_content, indent=2)
     except Exception as e:

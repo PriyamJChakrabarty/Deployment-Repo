@@ -8,6 +8,7 @@ import {
   AlertCircle,
   CheckCircle,
 } from "lucide-react";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function SuggestChangesSection({
   transcript,
@@ -35,7 +36,7 @@ export default function SuggestChangesSection({
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/suggest-changes",
+        buildBackendUrl("/api/suggest-changes"),
         {
           method: "POST",
           headers: {
@@ -90,7 +91,7 @@ export default function SuggestChangesSection({
     setSuccessMessage(null);
 
     try {
-      const response = await fetch("http://localhost:8000/api/apply-changes", {
+      const response = await fetch(buildBackendUrl("/api/apply-changes"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

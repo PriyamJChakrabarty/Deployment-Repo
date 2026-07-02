@@ -4,6 +4,7 @@ import {
   startContinuousRecording,
   stopContinuousRecording,
 } from "./RecorderHelper";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function VoiceRecorder({ onTranscriptUpdate }) {
   const [recording, setRecording] = useState(false);
@@ -19,7 +20,7 @@ export default function VoiceRecorder({ onTranscriptUpdate }) {
         formData.append("file", blob, `chunk-${Date.now()}.wav`);
 
         try {
-          const res = await fetch("http://127.0.0.1:8000/transcribe/chunk", {
+          const res = await fetch(buildBackendUrl("/transcribe/chunk"), {
             method: "POST",
             body: formData,
           });

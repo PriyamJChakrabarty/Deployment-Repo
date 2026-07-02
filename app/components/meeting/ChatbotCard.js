@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Loader2 } from "lucide-react";
 import axios from "axios";
+import { buildBackendUrl } from "../../lib/backend-url";
 
 export default function ChatbotCard() {
   const [messages, setMessages] = useState([
@@ -37,7 +38,7 @@ export default function ChatbotCard() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8000/api/chatbot", {
+      const response = await axios.post(buildBackendUrl("/api/chatbot"), {
         message: userMessage,
       });
 

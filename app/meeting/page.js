@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/nextjs";
 import { Mail } from "lucide-react";
+import { buildBackendUrl } from "../lib/backend-url";
 
 // Layout Components
 import Navbar from "../components/layout/Navbar";
@@ -26,7 +27,7 @@ const fetchMappedClauses = async (extractedItems) => {
     if (!query) return null;
 
     try {
-      const mapRes = await axios.post("http://localhost:8000/api/map_clauses", {
+      const mapRes = await axios.post(buildBackendUrl("/api/map_clauses"), {
         description: query,
       });
       return { key: String(i), clauses: mapRes.data.related_clauses };
@@ -82,8 +83,8 @@ export default function MeetingPage() {
 
     try {
       const [res1, res2] = await Promise.all([
-        axios.post("http://127.0.0.1:8000/api/extract", { transcript }),
-        axios.post("http://127.0.0.1:8000/api/actions", { transcript }),
+        axios.post(buildBackendUrl("/api/extract"), { transcript }),
+        axios.post(buildBackendUrl("/api/actions"), { transcript }),
       ]);
 
       setExtractData(res1.data.table || []);

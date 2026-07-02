@@ -15,6 +15,7 @@ import uuid
 import faiss
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from utils.db_client import get_database
+from utils.paths import data_path
 
 # ############REMOVE DOCUMENT_MODELS2############
 # backend/models/document_models.py (Simplified Clause Model)
@@ -245,6 +246,9 @@ EMBEDDING_MODEL = SentenceTransformer(EMBEDDING_MODEL_NAME)
 EMBEDDING_DIMENSION = EMBEDDING_MODEL.get_sentence_embedding_dimension()
 
 router=APIRouter()
+FAISS_BIN_PATH = data_path("faiss.bin")
+MAP_JSON_PATH = data_path("map.json")
+DB_JSON_PATH = data_path("db.json")
 
 
 def embed_documents_texts(texts: List[str]) -> Union[np.ndarray, None]:
@@ -287,8 +291,8 @@ def update_document_index(raw_text: str, doc_id: str) -> bool:
         return False
 
     # Load or create FAISS index
-    if os.path.exists("faiss.bin"):
-        faiss_index = faiss.read_index("faiss.bin")
+    if FAISS_BIN_PATH.exists():
+        faiss_index = faiss.read_index(str(FAISS_BIN_PATH))
     else:
         if EMBEDDING_DIMENSION == 0:
             print("FATAL: Embedding dimension not initialized.")
@@ -296,8 +300,8 @@ def update_document_index(raw_text: str, doc_id: str) -> bool:
         faiss_index = faiss.IndexFlatL2(EMBEDDING_DIMENSION)
         print("INFO: Created new FAISS index.")
     # Load or create map.json
-    if os.path.exists("map.json"):
-        with open("map.json", "r") as f:
+    if MAP_JSON_PATH.exists():
+        with MAP_JSON_PATH.open("r") as f:
             try:
                 mapping = json.load(f)
                 if not isinstance(mapping, dict):
@@ -313,10 +317,10 @@ def update_document_index(raw_text: str, doc_id: str) -> bool:
     # Add mapping: faiss_id -> doc_id
     mapping[str(new_faiss_id)] = doc_id
     # Save FAISS index
-    faiss.write_index(faiss_index, "faiss.bin")
+    faiss.write_index(faiss_index, str(FAISS_BIN_PATH))
 
     # Save mapping JSON
-    with open("map.json", "w") as f:
+    with MAP_JSON_PATH.open("w") as f:
         json.dump(mapping, f, indent=2)
         print(f"SUCCESS: Stored vector in faiss.bin at index {new_faiss_id}")
         print(f"SUCCESS: Stored mapping {new_faiss_id} -> {doc_id} in map.json")
@@ -371,13 +375,13 @@ def process_pdf_document(pdf_bytes: bytes) -> dict:
                 # The structured, editable content
                 "clauses": clauses_data_dicts,
             }
-            db_path="db.json"
+            db_path = DB_JSON_PATH
             if final_document:
                 doc_id = final_document["doc_id"]
 
                 # Load the existing JSON object
-                if os.path.exists(db_path):
-                    with open(db_path, "r") as f:
+                if db_path.exists():
+                    with db_path.open("r") as f:
                         try:
                             db = json.load(f)
                             if not isinstance(db, dict):
@@ -391,7 +395,7 @@ def process_pdf_document(pdf_bytes: bytes) -> dict:
                 db[doc_id] = final_document
                 # db = {doc_id: final_document}
                 # Save back to file
-                with open(db_path, "w") as f:
+                with db_path.open("w") as f:
                     json.dump(db, f, indent=2)
 
                 print("--- DOCUMENT SAVED TO db.json ---")
