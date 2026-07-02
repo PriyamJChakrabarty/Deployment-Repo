@@ -1,0 +1,76 @@
+[
+    {
+        "emp_id": "E001",
+        "name": "Amit Mehra",
+        "designation": "Senior Partner",
+        "department": "Corporate Law",
+        "email": "amit.mehra@lexora.in",
+        "experience_years": 18,
+        "bar_council_id": "D/1456/2005",
+        "specialization": "Mergers, Acquisitions, and Corporate Compliance",
+        "description": "Leads the corporate advisory wing. Oversees major M&A deals, foreign investments, and legal due diligence for Fortune 500 clients."
+    },
+    {
+        "emp_id": "E002",
+        "name": "Priya Nair",
+        "designation": "Partner",
+        "department": "Intellectual Property Rights",
+        "email": "priya.nair@lexora.in",
+        "experience_years": 14,
+        "bar_council_id": "MH/2378/2009",
+        "specialization": "Trademark, Copyright, and Patent Law",
+        "description": "Heads the IP practice with focus on brand protection and technology patents. Represents startups and creative agencies before IP tribunals."
+    },
+    {
+        "emp_id": "E003",
+        "name": "Rohan Sethi",
+        "designation": "Senior Associate",
+        "department": "Litigation & Dispute Resolution",
+        "email": "rohan.sethi@lexora.in",
+        "experience_years": 9,
+        "bar_council_id": "DL/4112/2014",
+        "specialization": "Commercial Arbitration and Civil Litigation",
+        "description": "Handles complex arbitration cases and commercial suits. Frequently appears before the Delhi High Court and NCLT."
+    },
+    {
+        "emp_id": "E004",
+        "name": "Sneha Deshpande",
+        "designation": "Associate",
+        "department": "Employment & Labour Law",
+        "email": "sneha.deshpande@lexora.in",
+        "experience_years": 5,
+        "bar_council_id": "MH/5890/2018",
+        "specialization": "Employment contracts, HR policies, and POSH compliance",
+        "description": "Advises corporates on workforce restructuring, employee benefits, and workplace harassment matters."
+    },
+    {
+        "emp_id": "E005",
+        "name": "Karan Malhotra",
+        "designation": "Legal Analyst",
+        "department": "Research & Knowledge Management",
+        "email": "karan.malhotra@lexora.in",
+        "experience_years": 3,
+        "specialization": "Legal research, contract drafting automation",
+        "description": "Supports partners in preparing case briefs and automating document templates. Skilled in AI-based legal text analytics."
+    },
+    {
+        "emp_id": "E006",
+        "name": "Ananya Roy",
+        "designation": "HR & Compliance Manager",
+        "department": "Operations",
+        "email": "ananya.roy@lexora.in",
+        "experience_years": 10,
+        "specialization": "Human Resources and Statutory Compliance",
+        "description": "Ensures firm-wide HR compliance, manages recruitment, and oversees Bar Council renewals and continuing legal education programs."
+    },
+    {
+        "emp_id": "E007",
+        "name": "Arjun Iyer",
+        "designation": "Finance & Billing Executive",
+        "department": "Accounts",
+        "email": "arjun.iyer@lexora.in",
+        "experience_years": 7,
+        "specialization": "Client billing, trust account management",
+        "description": "Manages client invoicing and ensures adherence to billing hours and financial reporting for ongoing legal matters."
+    }
+]
