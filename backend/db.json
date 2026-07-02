@@ -1,0 +1,118 @@
+{
+  "13fcf47d-461e-46c4-9ebe-02d033e545c8": {
+    "doc_id": "13fcf47d-461e-46c4-9ebe-02d033e545c8",
+    "doc_name": "SAMPLE AGREEMENT",
+    "doc_ref_no": null,
+    "doc_type": "Agreement",
+    "entity_1_name": "Global Innovations Incorporated",
+    "entity_2_name": "data weavers limited",
+    "execution_date": "2020-11-11",
+    "term_length": "two years",
+    "termination_notice": "[Number of Days] days",
+    "fee_structure": "In the amount of [Payment Terms] according to [Payment Schedule]",
+    "confidentiality_survival": null,
+    "full_text_context": "SAMPLE AGREEMENT \nThis Agreement (\u201cAgreement\u201d) is made and entered into as of [Date], by and between [Party A \nName], located at [Address] (\u201cParty A\u201d), and [Party B Name], located at [Address] (\u201cParty B\u201d). \n1. Purpose\u200b\n Party A and Party B agree to enter into this Agreement for the purpose of outlining the basic \nterms under which Party A will provide certain services to Party B. The parties intend for this \ndocument to serve as a clear statement of expectations and responsibilities. \n2. Services\u200b\n Party A agrees to perform the following services for Party B: [Description of Services]. Party \nA will complete the services in a professional manner and within reasonable timelines discussed \nbetween the parties. \n3. Compensation\u200b\n In exchange for the services described above, Party B agrees to compensate Party A in the \namount of [Payment Terms]. Payment will be made according to the following schedule: \n[Payment Schedule]. \n4. Term and Termination\u200b\n This Agreement will begin on the date stated above and will continue until the services are \ncompleted, unless terminated earlier by either party upon written notice. Either party may \nterminate this Agreement for any reason by providing [Number of Days] days written notice. \n5. Confidentiality\u200b\n Both parties agree to keep confidential any nonpublic information received during the course of \nthis Agreement, except when disclosure is required by law. \n6. Liability\u200b\n Party A will not be liable for any indirect or consequential damages. Liability for direct damages \nis limited to the amount paid under this Agreement. \n7. Entire Agreement\u200b\n This document constitutes the entire agreement between the parties regarding the subject \nmatter. Any amendments must be made in writing and signed by both parties. \n8. Governing Law\u200b\n This Agreement will be governed by and interpreted in accordance with the laws of \n[State/Country]. \nIN WITNESS WHEREOF, the parties have executed this Agreement as of the date written \nabove. \n \nParty A \n \nParty B \n \n",
+    "clauses": [
+      {
+        "clause_id": "1",
+        "title": "Purpose",
+        "text": "Party A and Party B agree to enter into this Agreement for the purpose of outlining the basic terms under which Party A will provide certain services to Party B. The parties intend for this document to serve as a clear statement of expectations and responsibilities."
+      },
+      {
+        "clause_id": "2",
+        "title": "Services",
+        "text": "Party A agrees to perform the following services for Party B: [Description of Services]. Party A will complete the services in a professional manner and within reasonable timelines discussed between the parties."
+      },
+      {
+        "clause_id": "3",
+        "title": "Compensation",
+        "text": "In exchange for the services described above, Party B agrees to compensate Party A in the amount of [Payment Terms]. Payment will be made according to the following schedule: [Payment Schedule]."
+      },
+      {
+        "clause_id": "4",
+        "title": "Term and Termination",
+        "text": "This Agreement will begin on the date stated above and will continue until the services are completed, unless terminated earlier by either party upon written notice. Either party may terminate this Agreement for any reason by providing [Number of Days] days written notice."
+      },
+      {
+        "clause_id": "5",
+        "title": "Confidentiality",
+        "text": "Both parties agree to keep confidential any nonpublic information received during the course of this Agreement, except when disclosure is required by law."
+      },
+      {
+        "clause_id": "7",
+        "title": "Entire Agreement",
+        "text": "This document constitutes the entire agreement between the parties regarding the subject matter. Any amendments must be made in writing and signed by both parties."
+      },
+      {
+        "clause_id": "8",
+        "title": "Governing Law",
+        "text": "This Agreement will be governed by and interpreted in accordance with the laws of Delaware."
+      },
+      {
+        "clause_id": "9",
+        "title": "Force Majeure",
+        "text": "Neither party will be liable for any failure or delay in performance due to events beyond their reasonable control."
+      },
+      {
+        "title": "Force Majeure",
+        "text": "Neither party shall be liable for any failure or delay in performance due to events."
+      }
+    ]
+  },
+  "299fd91d-5dc1-486d-acac-033a3b79c38a": {
+    "doc_id": "299fd91d-5dc1-486d-acac-033a3b79c38a",
+    "doc_name": "AlphaCore Technologies and NeuroGrid Analytics Non-Disclosure Agreement",
+    "doc_ref_no": null,
+    "doc_type": "Non-Disclosure Agreement",
+    "entity_1_name": "AlphaCore Technologies Ltd",
+    "entity_2_name": "NeuroGrid Analytics Pvt Ltd",
+    "execution_date": "2025-03-18",
+    "term_length": "three years",
+    "termination_notice": "100 days",
+    "fee_structure": null,
+    "confidentiality_survival": "three years",
+    "full_text_context": "FULL LEGAL DOCUMENT TEXT \nNON-DISCLOSURE AGREEMENT \nThis Non-Disclosure Agreement (\u201cAgreement\u201d) is entered into on 18 March 2025 (\u201cEffective \nDate\u201d) between AlphaCore Technologies Ltd (\u201cParty A\u201d) and NeuroGrid Analytics Pvt Ltd (\u201cParty \nB\u201d) for the purpose of exploring a potential strategic partnership. \n1.\u200b Definition of Confidential Information\u200b\n Confidential Information refers to all nonpublic technical, financial, operational, or \nbusiness data disclosed by either party in written, oral, visual, or electronic form. \nConfidential Information also includes analyses, compilations, notes, and all other \nmaterials derived from such data.\u200b\n \n2.\u200b Obligations of Confidentiality\u200b\n Each party agrees to protect the Confidential Information of the other party with the \nsame degree of care it applies to its own sensitive information. Neither party will disclose \nConfidential Information to any third party except to employees or advisors who have a \nneed to know and are bound by similar confidentiality obligations.\u200b\n \n3.\u200b Permitted Use\u200b\n Confidential Information may be used solely for evaluating or pursuing the proposed \nstrategic partnership. It may not be used for competitive purposes, commercial \nexploitation, or any activity not expressly authorized under this Agreement.\u200b\n \n4.\u200b Exclusions\u200b\n Confidential Information does not include information that becomes public through no \nfault of the receiving party, was already in the receiving party\u2019s possession prior to \ndisclosure, is independently developed without reference to the Confidential Information, \nor is disclosed under a legal or regulatory requirement.\u200b\n \n5.\u200b Term and Termination\u200b\n This Agreement remains in effect for three years from the Effective Date. Either party \nmay terminate the Agreement upon ninety days\u2019 written notice. Upon termination, all \nConfidential Information must be returned or destroyed within ten business days.\u200b\n \n6.\u200b Survival\u200b\n All confidentiality obligations shall survive termination of this Agreement for a period of \nthree years.\u200b\n \n7.\u200b No License\u200b\n Nothing in this Agreement grants any license or rights to the receiving party under any \npatents, copyrights, trademarks, or other intellectual property of the disclosing party.\u200b\n \n8.\u200b Governing Law\u200b\n This Agreement is governed by and construed in accordance with the laws of India. Any \ndisputes arising under this Agreement shall be subject to the exclusive jurisdiction of the \ncourts located in Bengaluru, India. \n \n \n",
+    "clauses": [
+      {
+        "clause_id": "1",
+        "title": "Definition of Confidential Information",
+        "text": "Confidential Information refers to all nonpublic technical, financial, operational, or business data disclosed by either party in written, oral, visual, or electronic form. Confidential Information also includes analyses, compilations, notes, and all other materials derived from such data."
+      },
+      {
+        "clause_id": "2",
+        "title": "Obligations of Confidentiality",
+        "text": "Each party agrees to protect the Confidential Information of the other party with the same degree of care it applies to its own sensitive information. Neither party will disclose Confidential Information to any third party except to employees or advisors who have a need to know and are bound by similar confidentiality obligations."
+      },
+      {
+        "clause_id": "3",
+        "title": "Permitted Use",
+        "text": "Confidential Information may be used solely for evaluating or pursuing the proposed strategic partnership. It may not be used for competitive purposes, commercial exploitation, or any activity not expressly authorized under this Agreement."
+      },
+      {
+        "clause_id": "4",
+        "title": "Exclusions",
+        "text": "Confidential Information does not include information that becomes public through no fault of the receiving party, was already in the receiving party\u2019s possession prior to disclosure, is independently developed without reference to the Confidential Information, or is disclosed under a legal or regulatory requirement."
+      },
+      {
+        "clause_id": "5",
+        "title": "Term and Termination",
+        "text": "This Agreement remains in effect for three years from the Effective Date. Either party may terminate the Agreement upon ninety days\u2019 written notice. Upon termination, all Confidential Information must be returned or destroyed within ten business days."
+      },
+      {
+        "clause_id": "6",
+        "title": "Survival",
+        "text": "All confidentiality obligations shall survive termination of this Agreement for a period of three years."
+      },
+      {
+        "clause_id": "7",
+        "title": "No License",
+        "text": "Nothing in this Agreement grants any license or rights to the receiving party under any patents, copyrights, trademarks, or other intellectual property of the disclosing party."
+      },
+      {
+        "clause_id": "8",
+        "title": "Governing Law",
+        "text": "This Agreement is governed by and construed in accordance with the laws of India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts located in Bengaluru, India."
+      }
+    ]
+  }
+}

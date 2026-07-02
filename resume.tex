@@ -1,0 +1,457 @@
+%-------------------------
+% Resume in Latex
+% Author : Abey George
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,9pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+% \input{glyphtounicode}
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\usetikzlibrary{svg.path}
+
+
+\definecolor{cvblue}{HTML}{0E5484}
+\definecolor{black}{HTML}{130810}
+\definecolor{darkcolor}{HTML}{0F4539}
+\definecolor{cvgreen}{HTML}{3BD80D}
+\definecolor{taggreen}{HTML}{00E278}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{darkcolor}
+\colorlet{heading}{darkcolor}
+\colorlet{headingrule}{cvblue}
+\colorlet{accent}{darkcolor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+% \pagestyle{fancy}
+% \fancyhf{}  % clear all header and footer fields
+% \fancyfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & \textbf{\small #2} \\
+      \textit{\large#3} & \textit{\small #4} \\
+      
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+
+\begin{center}
+    {\Huge \scshape Priyam Jyoti Chakrabarty} \\ 
+    Indian Institute of Information Technology Allahabad \\ \vspace{1pt}
+    \small \href{tel:#}{ \raisebox{-0.1\height}\faPhone\ \underline{+91-7427049169} ~} \href{mailto:priyam1234tech@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{priyam1234tech@gmail.com}} ~ 
+    \href{https://www.linkedin.com/in/priyamchakrabarty/}{\raisebox{-0.2\height}\faLinkedinSquare\ \underline{Linkedin}}  ~
+    \href{https://github.com/PriyamJChakrabarty}{\raisebox{-0.2\height}\faGithub\ \underline{Github}} ~
+    \href{https://codeforces.com/profile/frizer34}{\raisebox{-0.2\height}\faCode\ \underline{CodeForces}} ~
+    \href{https://leetcode.com/u/Priyam_Chakrabarty/}{\raisebox{-0.2\height}\faCode\ \underline{LeetCode}} ~
+\end{center}
+ \vspace{0.5mm}
+%#####################################################
+
+
+
+\section{EDUCATION}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Indian Institute of Information Technology, Allahabad}{2023 -- 2027}
+    {B.Tech - Information Technology - \textbf{CGPA} - \textbf{9.45}}{Prayagraj , Uttar Pradesh}
+
+  % \resumeSubheading
+  %   {Nalanda Academy, Kota}{2020 – 2022}
+  %   {Class 12th - CBSE - \textbf{Percentage} - \textbf{96.2\%}}{Kota , Rajasthan}
+
+  %   \resumeSubheading
+  %   {Manas Valley Academy, Barpeta Road}{2020}
+  %   {Class 10th - CBSE - \textbf{Percentage} - \textbf{96\%}}{Barpeta Road, Assam}
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+
+\section{EXPERIENCE}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+
+\resumeProjectHeading
+{\href{https://medium.com/@company_56220/dna-rna-and-proteins-structure-and-function-0121eab2a4c1}{\textbf{\large{\underline{Gene Editing Offset Analysis}}} {\raisebox{-0.1\height}\faExternalLink}} $|$ \large{\underline{Kalman Labs}}}{Aug 2024 -- Oct 2024}
+\resumeItemListStart
+\resumeItem {\normalsize{Worked on a \textbf{Gene Editing Offset Analysis} project at Kalman Labs Research Organization,using \textbf{data analysis tools}. to \textbf{analyze datasets} with over \textbf{5,962 samples}.}}
+\resumeItem{\normalsize{Developed and \textbf{trained neural networks} to \textbf{predict offset rates} accurately, leveraging \textbf{TensorFlow} \textbf{and} \textbf{Deep learning}}}
+\resumeItem{\normalsize{Collaborated with \textbf{a team of 4 researchers} to deliver key insights , \textbf{publishing results within 3 months}.}}
+\resumeItemListEnd
+\vspace{-13pt}
+
+
+% \resumeProjectHeading
+% {\href{https://medium.com/@company_56220/dna-rna-and-proteins-structure-and-function-0121eab2a4c1}{\textbf{\large{\underline{Gene Editing Offset Analysis}}} \href{https://medium.com/@company_56220/dna-rna-and-proteins-structure-and-function-0121eab2a4c1}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{Kalman Labs}}}{Aug 2024 - Oct 2024}\\
+% \resumeItemListStart
+% \resumeItem {\normalsize{Worked on a \textbf{Gene Editing Offset Analysis} project at Kalman Labs Research Organization, leveraging \textbf{TensorFlow} and \textbf{Deep learning} to analyze genetic datasets with over \textbf{500,000 samples}.}}
+% \resumeItem{\normalsize{Developed and trained neural networks to predict offset rates with \textbf{95\% accuracy}, using \textbf{Python and data analysis tools}.}}
+% \resumeItem{\normalsize{Collaborated with \textbf{a team of 4 researchers} to deliver key insights , \textbf{publishing results within 3 months}.}}
+% \resumeItemListEnd
+% \vspace{-13pt}
+
+% \vspace{5pt} 
+% \resumeProjectHeading
+% {{\scalebox{0.95}{\textbf{\large{\underline{AI/ML Wing Member - Google Developer Group}}} } $|$ \large{\underline{IIIT Allahabad}}}}{Sep 2024 - Present}\\
+% \resumeItemListStart
+% \resumeItem {\normalsize{\textbf{Mentored 150+ students} in AIML concepts through \textbf{3+ mentorship sessions} achieving \textbf{skill improvement} in \textbf{machine learning fundamentals}.}}
+% \resumeItem{\normalsize{\textbf{Delivered 2 workshops} to \textbf{100+ attendees} covering \textbf{ML Algorithms, DL, CNN and RNN architectures.} }}
+% \resumeItemListEnd
+% \vspace{-13pt}
+
+
+% \resumeProjectHeading
+% {{\textbf{\large{\underline{AIML Member - Google Developer Group}}} } $|$ \large{\underline{IIIT Allahabad}}}{Aug 2024 - Oct 2024}\\
+% \resumeItemListStart
+% \resumeItem {\normalsize{\textbf{Mentored 150+ students} in AIML concepts through \textbf{3+ mentorship sessions} achieving \textbf{85\% skill improvement} in machine learning fundamentals.}}
+% \resumeItem{\normalsize{\textbf{Delivered 2 workshops} to \textbf{100+ attendees} covering \textbf{CNN architectures, OpenCV preprocessing, and REST API deployment} using Flask/FastAPI frameworks.}}
+% \resumeItemListEnd
+% \vspace{-13pt}
+
+
+
+\resumeSubHeadingListEnd
+
+\section{RESEARCH}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{\large{\underline{FIR-Free Sub-Nyquist Vibration Compression for Constrained IIoT Edge Nodes}}} $|$ \large{\underline{IEEE Sensors Journal, Under Review}}}{}
+\resumeItemListStart
+\resumeItem{\normalsize{Achieved \textbf{30.2 dB PSNR} across \textbf{9 CWRU fault conditions} via \textbf{PCHIP interpolation} on \textbf{Bernoulli-sampled} measurements, recovering full \textbf{0--6 kHz} spectrum from \textbf{30\% of 12 kHz} data.}}
+\resumeItem{\normalsize{Outperformed \textbf{CS-OMP} by \textbf{15$\times$} on harmonic error (1.49 vs.\ 21.9 dB) at \textbf{90$\times$ lower compute} and \textbf{62$\times$ less memory} via \textbf{PCHIP} over \textbf{DCT-basis OMP} on identical \textbf{8192-sample} windows.}}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+
+
+
+
+
+
+
+
+
+%#####################################################
+%-----------EDUCATION-----------
+
+
+
+
+  % \section{EDUCATION}
+  % \resumeSubHeadingListStart
+  %   \resumeSubheading
+  %     {Indian Institute of Information Technology, Allahabad}{2023 – 2027}
+  %     {B.Tech - Information Technology - \textbf{CGPA} - \textbf{9.28}}{Prayagraj , Uttar Pradesh}
+
+  %     \resumeSubheading
+  %     {Nalanda Academy, Kota}{2020 – 2022}
+  %     {Class 12th - CBSE - \textbf{Percentage} - \textbf{96.2\%}}{Kota , Rajasthan} 
+
+  % \resumeSubHeadingListEnd
+  
+%   \resumeSubHeadingListStart
+%     \resumeSubheading
+%       {College Name}{MM YYYY -- MM YYYY}
+%       {Exam Name - Course Name  - \textbf{Percentage} - \textbf{xx\%}}{city, country}
+%   \resumeSubHeadingListEnd
+
+%------RELEVANT COURSEWORK-------
+% \section{TECHNICAL SKILLS}
+%   \resumeSubHeadingListStart
+%   \setlength{\itemsep}{0pt}  % Reduces space between items
+%     \item \textbf{Languages:} Python, SQL
+%     \item \textbf{Databases:} MySQL, MongoDB, ChromaDB
+%   \resumeSubHeadingListEnd
+
+
+
+
+
+
+%-----------PROJECTS-----------
+
+\section{PROJECTS}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+
+% \resumeProjectHeading
+% {{\textbf{\large{\underline{ML Outliers - Platform for AI/ML Learners}}} } $|$ \large{\underline{React, Next.js, PostgreSQL}}}{\href{https://github.com/PriyamJChakrabarty/ML-Outliers}{\raisebox{-0.1\height}\faGithub\ \textit{GitHub}} | \href{https://ml-outliers.vercel.app/}{\raisebox{-0.1\height}\faExternalLink\ \textit{Live Link}}}\\
+% \resumeItemListStart
+% \item Developed an interactive \textbf{ML intuition building platform with visualizations}; built with \textbf{React \& \textbf{Next.js}}, serving \textbf{30+ active users}.
+
+% \item Designed data pipelines using \textbf{PostgreSQL} \textbf{via} \textbf{Neon Serverless}, leveraging \textbf{core \textbf{SQL} principles}.
+
+% \item Maintained codebase with \textbf{Git version control}; integrated \textbf{REST APIs}, \textbf{Clerk Auth}, and \textbf{Drizzle ORM} in a \textbf{modular \textbf{Next.js} architecture}.
+% \resumeItemListEnd
+
+
+\resumeProjectHeading
+{{\textbf{\large{\underline{Debug Royale}}} } $|$ \large{\underline{Next.js, PostgreSQL, Redis, SSE, Ably}}}{\href{https://github.com/PriyamJChakrabarty/Debug-Battle}{\raisebox{-0.1\height}\faGithub\ \textit{GitHub}} | \href{https://debug-battle-roan.vercel.app/}{\raisebox{-0.1\height}\faExternalLink\ \textit{Live Link}}}
+\resumeItemListStart
+\resumeItem{\normalsize{Sustained \textbf{live match-state delivery for 300+ users} with \textbf{20-second heartbeats} and \textbf{5-second polling fallback} preventing state drift on stream failure, via \textbf{EventSource SSE} and \textbf{Ably pub/sub fanout}.}}
+\resumeItem{\normalsize{Eliminated \textbf{duplicate and ghost matches} from matchmaking queuing across \textbf{60 concurrent join attempts} by enforcing \textbf{atomic DB upserts}, \textbf{20-second presence-window gating}, and \textbf{stale-entry cleanup}.}}
+\resumeItem{\normalsize{Implemented and stress-tested \textbf{Redis sliding-window rate limiter} under concurrent burst scenarios to confirm \textbf{90--99\% abuse suppression} while preserving \textbf{100\% legitimate throughput} at \textbf{101 ms p95}.}}
+\resumeItemListEnd
+
+
+
+
+
+
+% \resumeProjectHeading
+% % {\href{https://github.com/deadmoont/Police-Assistant-System.git}{\textbf{\large{\underline{Interview Assist}}} \href{https://github.com/deadmoont/Police-Assistant-System.git}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{React, Next.js, Gemini AI, Drizzle ORM (SQL)}}}{Nov 2024 - Present}\\
+% {
+%   \textbf{\large{\underline{Color Fit: Outlines to Vivid Art}}}
+%   $|$ \large{\underline{UNet-CNN, GAN, TensorFlow}}
+% }{
+%      \quad
+%     \href{https://github.com/PriyamJChakrabarty/ColorFit---Sketch-to-Color}{\raisebox{-0.1\height}\faGithub\ \textit{GitHub}} | \href{https://priyamj27-colorfit-v0-1.hf.space/}{\raisebox{-0.1\height}\faExternalLink\ \textit{Live Link}}}\\
+%   % \vspace{0.3pt}
+  
+% \resumeItemListStart
+% \resumeItem{\normalsize{Built a model to \textbf{automatically fill colors} in \textbf{outline sketches}, trained on the \textbf{Anime Sketch Colorization Pair dataset} with \textbf{17,000+ samples}. }}
+% \resumeItem {\normalsize{Used \textbf{UNet and GAN architectures},\textbf{achieving 20\% improvement} in \textbf{structure similarity index (SSIM) for image-to-image translation}.}}
+% \resumeItem{\normalsize{Designed a \textbf{custom data pipeline} with \textbf{data augmentation, image preprocessing, and supervised learning} for \textbf{robust training and evaluation}.}}
+% \resumeItemListEnd
+
+
+\resumeProjectHeading
+{{\textbf{\large{\underline{Zudia - Your Meeting Co-pilot}}} } $|$ \large{\underline{Next.js, JavaScript, Web Workers, MongoDB}}}{\href{https://github.com/PriyamJChakrabarty/Zudia--Your-Meeting-Co-Pilot}{\raisebox{-0.1\height}\faGithub\ \textit{GitHub}} | \href{https://www.placeholder.com}{\raisebox{-0.1\height}\faExternalLink\ \textit{Live Link}}}
+\resumeItemListStart
+\resumeItem{\normalsize{Created a \textbf{Live Audio Capture Pipeline} with WAV encode overhead at \textbf{2.32 ms} — \textbf{21×} under the \textbf{50 ms} long-task ceiling — across \textbf{1,000} test chunks via PCM buffering and \textbf{16-bit} mono serialization.}}
+\resumeItem{\normalsize{Used an \textbf{inline Web Worker} to offload WAV encoding, keeping main-thread stall at \textbf{0 ms} across \textbf{160} chunk encodes, versus \textbf{45.73 ms} blocking on the synchronous \textbf{60 s} audio path.}}
+\resumeItem{\normalsize{Used \textbf{Debouncing \& Throttling} to cut transcript re-renders from \textbf{3,600} naive updates to \textbf{1} flush per \textbf{180 s} burst stream — \textbf{500 ms} ref-buffered debounce on UI updates and one chunk per \textbf{3 s} throttle on audio exports.}}
+\resumeItemListEnd
+
+
+
+
+
+
+
+
+
+\resumeProjectHeading
+{{\textbf{\large{\underline{KG - ClinicalTrialRecommender}}} } $|$ \large{\underline{Neo4j, Knowledge Graph, Graph Data Science}}}{\href{https://github.com/PriyamJChakrabarty/KG-ClinicalTrialRecommendor}{\raisebox{-0.1\height}\faGithub\ \textit{GitHub}} | \href{https://priyamjchakrabarty.github.io/KG-ClinicalGraph-Web/}{\raisebox{-0.1\height}\faExternalLink\ \textit{Live Link}}}
+\resumeItemListStart
+\resumeItem{\normalsize{Applied \textbf{Knowledge Graph Representation in Neo4j} to build \textbf{Clinical-Trial Recommender} to \textbf{find 10 similar trials} with \textbf{Precision@10 of 0.82.}}}
+\resumeItem{\normalsize{\textbf{Accelerated query response time by 85\%} using \textbf{algorithmic graph optimisation}, reducing\textbf{ response time to 2 seconds}.}}
+\resumeItem{\normalsize{\textbf{Improved synonym clubbing} across \textbf{10,000+ clinical trial attributes} by \textbf{~20\% relative pairwise F1 score} implementing \textbf{Stella 1.5B embeddings} with FAISS indexing.}}
+\resumeItemListEnd
+% \vspace{-13pt}
+
+
+
+
+
+
+
+
+
+% \vspace{5pt}
+% \resumeProjectHeading
+% {{\textbf{\large{\underline{Police Department Assistant System}}} } $|$ \large{\underline{YOLO, OpenCV, MongoDB, React}}}{\href{https://github.com/deadmoont/Police-Assistant-System.git}{\raisebox{-0.1\height}\faGithub\ \textit{GitHub} }}\\
+% \resumeItemListStart
+% \resumeItem {\normalsize{\textbf{Accomplished 50\% reduction} in manual processes as measured by streamlined operations \textbf{handling 500+ weekly complaints}, by building \textbf{automated law operations system}.}}
+% \resumeItem{\normalsize{ Coordinated with a \textbf{ team of 4 members}, using Agile methodologies to achieve a \textbf{20\% improvement in iteration completion speed}.}}
+% \resumeItem{\normalsize{ \textbf{Reduced system downtime by 30\%} by implementing error detection , \textbf{achieving 3,000 requests/second processing capacity} measured by Express.js performance}}
+% \resumeItemListEnd
+
+
+
+
+
+
+\resumeSubHeadingListEnd
+
+        % \resumeProjectHeading
+        %   {\href{https://github.com/FusionIIIT/Fusion/tree/main/FusionIIIT/applications/counselling_cell}{\textbf{\large{\underline{Counselling Cell - \textbf{Fusion IIIT}}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{HTML, CSS, Django, PostgreSQL}}}{2021-22}
+        %   \resumeItemListStart
+        %      \resumeItem{\normalsize{Develop the \textbf{front-end} of Counselling Cell module in Fusion IIIT.}}
+        %     \resumeItem{\normalsize{Module Consists of 4-5 different types of users with different functionalities.}}
+        %     \resumeItem{\normalsize{Added \textbf{10-12 new features} like organize the user interface of the Module's \textbf{Home Page}}}
+        %     \resumeItem{\normalsize{Handle the database and integrated the module with other existing modules.}}
+        %   \resumeItemListEnd
+        % \vspace{-13pt}
+
+%
+
+
+%-----------EXPERIENCE-----------
+% \section{INTERNSHIP}
+%   \resumeSubHeadingListStart
+
+%     \resumeSubheading
+%       {Company Name \href{certificate Link}{\raisebox{-0.1\height}\faExternalLink }}{MM YYYY -- MM YYYY} 
+%       {\underline{Role Name}}{city, country}
+%       \resumeItemListStart
+%         \resumeItem{\normalsize{About the role \textbf{and responsibilities carried out.}}}
+  
+%       \resumeItemListEnd  
+%   \resumeSubHeadingListEnd
+% \vspace{-12pt}
+%-----------PROGRAMMING SKILLS-----------
+% \section{TECHNICAL SKILLS}
+%  \begin{itemize}[leftmargin=0.15in, label={}]
+%     \small{\item{
+%      \textbf{\normalsize{Languages:}}{  \normalsize{C, C++, JavaS, dart , xml}} \\
+%      \textbf{\normalsize{Technologies/Frameworks:}}{  \normalsize{HTML5, CSS3, MongoDB, Express, Javascript, NodeJS, Flutter , Kotlin}} \\
+%      \textbf{\normalsize{Developer Tools:}}{  \normalsize{VS Code, Android Studio, IntelliJ, Figma }} \\
+%     }}
+%  \end{itemize}
+%  \vspace{-15pt}
+
+
+
+\section{TECHNICAL SKILLS}
+\resumeSubHeadingListStart
+  \item \textbf{Languages:} C, C++, Java, Python \quad
+        % \textbf{ML/AI:} TensorFlow, Scikit-Learn, NLP, Numpy, Pandas\quad
+        \textbf{CS Concepts:} DSA, OS, DBMS, OOP, CN\quad
+        \textbf{Databases:} PostgreSQL, MongoDB \quad
+        
+
+  % \item \textbf{Databases:} PostgreSQL, Neo4j \quad
+  %       \textbf{CS Concepts:} DSA, OS, DBMS, OOP, CN
+\resumeSubHeadingListEnd
+
+ 
+  %-----------CERTIFICATIONS---------------
+\section{Achievements and Extra Curricular Activities}
+
+$\sbullet[.75] \hspace{0.1cm}$ {\href{#}{CodeForces rating: \textbf{1520 (Specialist)}, LeetCode rating: \textbf{1803 (Max)}}} \\
+% $\sbullet[.75] \hspace{0.1cm}$ {\href{#}{\textbf{AIR 4,648} in JEE Mains 2023. \textbf{AIR 11276} in JEE Advanced 2023}} \hspace{1.6cm}\\
+$\sbullet[.75] \hspace{0.2cm}$ {\href{#}{\textbf{Rank 2} in \textbf{OpenCode 2024}}}, {\textbf{National Semi-Finals Novartis NEST 2025}} \\
+$\sbullet[.75] \hspace{0.2cm}$ {\href{#}{\textbf{Sponsorship Department , Aparoksha TechFest 2024} - Displaying \textbf{Excellent Communication Skills}}}
+
+
+
+
+ % \section{Extra Curricular Activities}
+ %    \resumeSubHeadingListStart
+ %        % \resumeSubheading{Organization Name \href{Certificate Proof link}{\raisebox{-0.1\height}\faExternalLink } }{05-2021 -- 12-2021}{\underline{Role}}{Location}
+        
+ %            \resumeItemListStart
+ %                \resumeItem{\normalsize{AI/ML Member of Google Developer Group, IIIT Allahabad}}
+ %                \resumeItem{\normalsize{Public Relations team , Aproksha (Technical Fest) }}
+ %                \resumeItem{\normalsize{Sponsorship & marketing team of Effervescence (Cultural Society) , Asmita (Sports Society) }}
+ %            \resumeItemListEnd
+ %    \resumeSubHeadingListEnd
+ % \vspace{-11pt}
+ 
+ \end{document}

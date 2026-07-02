@@ -1,0 +1,156 @@
+
+╔════════════════════════════════════════════════════════════════════════╗
+║          SCRIPT 4 — END-TO-END SPEECH-TO-VISIBLE-TEXT LATENCY          ║
+║                        2026-06-29T13:04:39.712Z                        ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Architecture Constants                                               │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Chunk window (RecorderHelper.js) .........  3000 ms
+    Flush delay (useLiveTranscript.js) .......  500 ms
+    Structural floor (chunk + flush) .........  3500 ms  (before network + model)
+    Paint budget (60 Hz frame) ...............  16.7 ms
+    Utterances per scenario ..................  50
+
+    WAV encode times are measured in-process; all other stages are simulated.
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ WAV Encode Overhead Baseline                                         │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Encode p50 ...............................  2.20 ms
+    Encode p95 ...............................  2.65 ms
+    Encode max ...............................  6.03 ms
+    Encode mean ..............................  2.30 ms
+
+    ✔ PASS  Encode overhead p95 2.65 ms — well under 50 ms long-task threshold
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Scenario: Ideal network                                              │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Upload range:       80–150 ms
+    Transcription range: 400–700 ms
+
+    ┌──────────────────┬─────────┬─────────┬─────────┬────────────────┐
+    │ Stage            │ p50 ms  │ p95 ms  │ max ms  │ % of total p50 │
+    ├──────────────────┼─────────┼─────────┼─────────┼────────────────┤
+    │ 1. Chunk window  │ 3000    │ 3000    │ 3000    │ 71.9%          │
+    │ 2. WAV encode    │ 2.11    │ 2.38    │ 2.41    │ 0.1%           │
+    │ 3. Upload RTT    │ 105.73  │ 141.48  │ 149.55  │ 2.5%           │
+    │ 4. Transcription │ 538.44  │ 675.44  │ 698.24  │ 12.9%          │
+    │ 5. UI flush      │ 500     │ 500     │ 500     │ 12.0%          │
+    │ 6. Paint         │ 16.70   │ 16.70   │ 16.70   │ 0.4%           │
+    │ ─── TOTAL ───    │ 4172.81 │ 4320.00 │ 4332.30 │ 100%           │
+    └──────────────────┴─────────┴─────────┴─────────┴────────────────┘
+
+    speech-start → visible p50 ...............  4.173 s
+    speech-start → visible p95 ...............  4.320 s
+    chunk-end    → visible p50 ...............  1.173 s
+    chunk-end    → visible p95 ...............  1.320 s
+
+    Browser-side overhead (encode + flush + paint) p95 .  519.08 ms  (above the structural floor)
+    ✔ PASS  p50 4.173s — within the 4.0–4.5s interview target
+    ✔ PASS  p95 4.320s — within the 5.0–6.0s interview target
+
+    Chunk window            ███████████████████░░░░░░░░░   69.2%  (3000.00)
+    WAV encode p50          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0.0%  (2.11)
+    Upload p50              █░░░░░░░░░░░░░░░░░░░░░░░░░░░    2.4%  (105.73)
+    Transcription p50       ███░░░░░░░░░░░░░░░░░░░░░░░░░   12.4%  (538.44)
+    UI flush                ███░░░░░░░░░░░░░░░░░░░░░░░░░   11.5%  (500.00)
+    Paint                   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0.4%  (16.70)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Scenario: Typical network                                            │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Upload range:       150–350 ms
+    Transcription range: 700–1200 ms
+
+    ┌──────────────────┬─────────┬─────────┬─────────┬────────────────┐
+    │ Stage            │ p50 ms  │ p95 ms  │ max ms  │ % of total p50 │
+    ├──────────────────┼─────────┼─────────┼─────────┼────────────────┤
+    │ 1. Chunk window  │ 3000    │ 3000    │ 3000    │ 63.7%          │
+    │ 2. WAV encode    │ 2.11    │ 2.90    │ 8.20    │ 0.0%           │
+    │ 3. Upload RTT    │ 248.26  │ 339.14  │ 348.61  │ 5.3%           │
+    │ 4. Transcription │ 935.63  │ 1163.06 │ 1185.79 │ 19.9%          │
+    │ 5. UI flush      │ 500     │ 500     │ 500     │ 10.6%          │
+    │ 6. Paint         │ 16.70   │ 16.70   │ 16.70   │ 0.4%           │
+    │ ─── TOTAL ───    │ 4708.61 │ 4940.92 │ 4980.18 │ 100%           │
+    └──────────────────┴─────────┴─────────┴─────────┴────────────────┘
+
+    speech-start → visible p50 ...............  4.709 s
+    speech-start → visible p95 ...............  4.941 s
+    chunk-end    → visible p50 ...............  1.709 s
+    chunk-end    → visible p95 ...............  1.941 s
+
+    Browser-side overhead (encode + flush + paint) p95 .  519.60 ms  (above the structural floor)
+    ⚠ WARN  p50 4.709s — outside the 4.0–4.5s target for this scenario
+    ✔ PASS  p95 4.941s — within the 5.0–6.0s interview target
+
+    Chunk window            █████████████████░░░░░░░░░░░   60.2%  (3000.00)
+    WAV encode p50          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0.0%  (2.11)
+    Upload p50              █░░░░░░░░░░░░░░░░░░░░░░░░░░░    5.0%  (248.26)
+    Transcription p50       █████░░░░░░░░░░░░░░░░░░░░░░░   18.8%  (935.63)
+    UI flush                ███░░░░░░░░░░░░░░░░░░░░░░░░░   10.0%  (500.00)
+    Paint                   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0.3%  (16.70)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Scenario: Slow network                                               │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Upload range:       500–1200 ms
+    Transcription range: 1000–2000 ms
+
+    ┌──────────────────┬─────────┬─────────┬─────────┬────────────────┐
+    │ Stage            │ p50 ms  │ p95 ms  │ max ms  │ % of total p50 │
+    ├──────────────────┼─────────┼─────────┼─────────┼────────────────┤
+    │ 1. Chunk window  │ 3000    │ 3000    │ 3000    │ 50.9%          │
+    │ 2. WAV encode    │ 2.15    │ 2.76    │ 2.99    │ 0.0%           │
+    │ 3. Upload RTT    │ 910.91  │ 1135.34 │ 1159.25 │ 15.4%          │
+    │ 4. Transcription │ 1509.23 │ 1905.25 │ 1952.47 │ 25.6%          │
+    │ 5. UI flush      │ 500     │ 500     │ 500     │ 8.5%           │
+    │ 6. Paint         │ 16.70   │ 16.70   │ 16.70   │ 0.3%           │
+    │ ─── TOTAL ───    │ 5898.96 │ 6454.87 │ 6542.12 │ 100%           │
+    └──────────────────┴─────────┴─────────┴─────────┴────────────────┘
+
+    speech-start → visible p50 ...............  5.899 s
+    speech-start → visible p95 ...............  6.455 s
+    chunk-end    → visible p50 ...............  2.899 s
+    chunk-end    → visible p95 ...............  3.455 s
+
+    Browser-side overhead (encode + flush + paint) p95 .  519.46 ms  (above the structural floor)
+    ⚠ WARN  p50 5.899s — outside the 4.0–4.5s target for this scenario
+    ⚠ WARN  p95 6.455s — outside the 5.0–6.0s target for this scenario
+
+    Chunk window            █████████████░░░░░░░░░░░░░░░   45.9%  (3000.00)
+    WAV encode p50          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0.0%  (2.15)
+    Upload p50              ████░░░░░░░░░░░░░░░░░░░░░░░░   13.9%  (910.91)
+    Transcription p50       ██████░░░░░░░░░░░░░░░░░░░░░░   23.1%  (1509.23)
+    UI flush                ██░░░░░░░░░░░░░░░░░░░░░░░░░░    7.6%  (500.00)
+    Paint                   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0.3%  (16.70)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Cross-Scenario Comparison                                            │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    ┌─────────────────┬───────┬───────┬─────────────────┬───────────────┐
+    │ Scenario        │ p50 s │ p95 s │ In 4.5s target? │ In 6s target? │
+    ├─────────────────┼───────┼───────┼─────────────────┼───────────────┤
+    │ Ideal network   │ 4.17  │ 4.34  │ YES ✔           │ YES ✔         │
+    │ Typical network │ 4.74  │ 4.97  │ NO ✘            │ YES ✔         │
+    │ Slow network    │ 5.78  │ 6.38  │ NO ✘            │ NO ✘          │
+    └─────────────────┴───────┴───────┴─────────────────┴───────────────┘
+
+  ▶ Script 4 — Key Results
+      •  Structural floor (before network)       3500 ms (3.5 s)
+      ✔  Ideal network p50                       4.17 s
+      ✔  Ideal network p95                       4.32 s
+      ✔  Browser encode + flush overhead p95     < 519 ms
+      •  Target: p50 under 4.0–4.5 s             (ideal network only)
+      •  Target: p95 under 5.0–6.0 s             (ideal network only)
+
+  Log saved → C:\Users\Priyam\Documents\Temp\Projects\Latest\Zudia\testScripts\logs\speech-to-text-latency-results.log
+

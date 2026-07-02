@@ -1,0 +1,156 @@
+
+╔════════════════════════════════════════════════════════════════════════╗
+║                  SCRIPT 5 — LONG-SESSION RELIABILITY                   ║
+║                        2026-06-29T13:05:09.832Z                        ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Configuration                                                        │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Sample rate ..............................  48,000 Hz
+    Chunk duration ...........................  3 s
+    Audio type ...............................  noise  (worst-case for encode)
+    Upload fail rate .........................  2%  (injected)
+    Timing anomaly rate ......................  1%  (injected)
+    Timing spike size ........................  250 ms
+    Empty transcript rate ....................  ~3%  (injected)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ 10-min session                                                       │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Simulating 10 min → 200 chunks …
+
+    ┌──────────────────────┬────────────┬───────────────────────────────┐
+    │ Metric               │ Value      │ Target / Note                 │
+    ├──────────────────────┼────────────┼───────────────────────────────┤
+    │ Total chunks         │ 200        │ —                             │
+    │ Successful uploads   │ 196        │ —                             │
+    │ Failed uploads       │ 4          │ 2% injected                   │
+    │ Empty transcriptions │ 3          │ ~3% injected                  │
+    │ Chunk success rate   │ 98.00%     │ ≥ 99% target                  │
+    │ Encode p50           │ 2.15 ms    │ < 50 ms (long-task threshold) │
+    │ Encode p95           │ 2.49 ms    │ < 50 ms                       │
+    │ Interval drift p50   │ 2996.65 ms │ < 100 ms target               │
+    │ Interval drift p95   │ 2996.94 ms │ < 200 ms target               │
+    │ Interval drift max   │ 2997.05 ms │ —                             │
+    │ Memory start         │ 5.0 MiB    │ —                             │
+    │ Memory end           │ 5.6 MiB    │ —                             │
+    │ Memory peak          │ 6.1 MiB    │ —                             │
+    │ Memory growth        │ 0.6 MiB    │ bounded = pass                │
+    └──────────────────────┴────────────┴───────────────────────────────┘
+
+    ✘ FAIL  10-min session: 98.00% success rate — below 99% target
+    ⚠ WARN  10-min session: interval drift p95 2996.94 ms — above 200 ms
+    ✔ PASS  10-min session: memory growth 0.6 MiB — bounded
+
+    Encode p50              ███████░░░░░░░░░░░░░░░░░░░░░   24.6%  (2.15)
+    Encode p95              ████████░░░░░░░░░░░░░░░░░░░░   28.5%  (2.49)
+    Encode max              ████████████████████████████  100.0%  (8.74)
+
+    Drift p50               ████████████████████████████  100.0%  (2996.65)
+    Drift p95               ████████████████████████████  100.0%  (2996.94)
+    Drift max               ████████████████████████████  100.0%  (2997.05)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ 20-min session                                                       │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Simulating 20 min → 400 chunks …
+
+    ┌──────────────────────┬────────────┬───────────────────────────────┐
+    │ Metric               │ Value      │ Target / Note                 │
+    ├──────────────────────┼────────────┼───────────────────────────────┤
+    │ Total chunks         │ 400        │ —                             │
+    │ Successful uploads   │ 390        │ —                             │
+    │ Failed uploads       │ 10         │ 2% injected                   │
+    │ Empty transcriptions │ 11         │ ~3% injected                  │
+    │ Chunk success rate   │ 97.50%     │ ≥ 99% target                  │
+    │ Encode p50           │ 2.09 ms    │ < 50 ms (long-task threshold) │
+    │ Encode p95           │ 2.36 ms    │ < 50 ms                       │
+    │ Interval drift p50   │ 2996.90 ms │ < 100 ms target               │
+    │ Interval drift p95   │ 2997.15 ms │ < 200 ms target               │
+    │ Interval drift max   │ 2997.25 ms │ —                             │
+    │ Memory start         │ 7.6 MiB    │ —                             │
+    │ Memory end           │ 8.0 MiB    │ —                             │
+    │ Memory peak          │ 8.2 MiB    │ —                             │
+    │ Memory growth        │ 0.3 MiB    │ bounded = pass                │
+    └──────────────────────┴────────────┴───────────────────────────────┘
+
+    ✘ FAIL  20-min session: 97.50% success rate — below 99% target
+    ⚠ WARN  20-min session: interval drift p95 2997.15 ms — above 200 ms
+    ✔ PASS  20-min session: memory growth 0.3 MiB — bounded
+
+    Encode p50              █████████████████████░░░░░░░   75.5%  (2.09)
+    Encode p95              ████████████████████████░░░░   85.2%  (2.36)
+    Encode max              ████████████████████████████  100.0%  (2.77)
+
+    Drift p50               ████████████████████████████  100.0%  (2996.90)
+    Drift p95               ████████████████████████████  100.0%  (2997.15)
+    Drift max               ████████████████████████████  100.0%  (2997.25)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ 30-min session                                                       │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    Simulating 30 min → 600 chunks …
+
+    ┌──────────────────────┬────────────┬───────────────────────────────┐
+    │ Metric               │ Value      │ Target / Note                 │
+    ├──────────────────────┼────────────┼───────────────────────────────┤
+    │ Total chunks         │ 600        │ —                             │
+    │ Successful uploads   │ 593        │ —                             │
+    │ Failed uploads       │ 7          │ 2% injected                   │
+    │ Empty transcriptions │ 25         │ ~3% injected                  │
+    │ Chunk success rate   │ 98.83%     │ ≥ 99% target                  │
+    │ Encode p50           │ 2.08 ms    │ < 50 ms (long-task threshold) │
+    │ Encode p95           │ 2.43 ms    │ < 50 ms                       │
+    │ Interval drift p50   │ 2996.92 ms │ < 100 ms target               │
+    │ Interval drift p95   │ 2997.19 ms │ < 200 ms target               │
+    │ Interval drift max   │ 2997.31 ms │ —                             │
+    │ Memory start         │ 6.3 MiB    │ —                             │
+    │ Memory end           │ 9.8 MiB    │ —                             │
+    │ Memory peak          │ 12.7 MiB   │ —                             │
+    │ Memory growth        │ 3.5 MiB    │ bounded = pass                │
+    └──────────────────────┴────────────┴───────────────────────────────┘
+
+    ✘ FAIL  30-min session: 98.83% success rate — below 99% target
+    ⚠ WARN  30-min session: interval drift p95 2997.19 ms — above 200 ms
+    ✔ PASS  30-min session: memory growth 3.5 MiB — bounded
+
+    Encode p50              ███████████████████░░░░░░░░░   69.5%  (2.08)
+    Encode p95              ███████████████████████░░░░░   81.2%  (2.43)
+    Encode max              ████████████████████████████  100.0%  (2.99)
+
+    Drift p50               ████████████████████████████  100.0%  (2996.92)
+    Drift p95               ████████████████████████████  100.0%  (2997.19)
+    Drift max               ████████████████████████████  100.0%  (2997.31)
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ Cross-Session Comparison                                             │
+  └──────────────────────────────────────────────────────────────────────┘
+
+    ┌────────────────┬────────┬───────────┬──────────────┬────────────────┬───────┬───────────┐
+    │ Session        │ Chunks │ Success % │ Drift p95 ms │ Mem growth MiB │ ≥99%? │ Drift OK? │
+    ├────────────────┼────────┼───────────┼──────────────┼────────────────┼───────┼───────────┤
+    │ 10-min session │ 200    │ 98.00%    │ 2996.94      │ 0.6            │ NO ✘  │ NO ✘      │
+    │ 20-min session │ 400    │ 97.50%    │ 2997.15      │ 0.3            │ NO ✘  │ NO ✘      │
+    │ 30-min session │ 600    │ 98.83%    │ 2997.19      │ 3.5            │ NO ✘  │ NO ✘      │
+    └────────────────┴────────┴───────────┴──────────────┴────────────────┴───────┴───────────┘
+
+    10-min session success  ███████████████████████████░   98.0%  (98.00)
+    20-min session success  ███████████████████████████░   97.5%  (97.50)
+    30-min session success  ████████████████████████████   98.8%  (98.83)
+
+  ▶ Script 5 — Key Results
+      ⚠  All sessions ≥ 99% chunk success        PARTIAL
+      ⚠  All sessions drift p95 < 200 ms         PARTIAL
+      ✔  Memory growth bounded (< 20 MiB)        YES
+      ⚠  30-min session success rate             98.83%
+      ⚠  30-min drift p95                        2997.19 ms
+      •  Upload fail rate injected               2%
+      •  Target (interview bullet)               99%+ chunks / drift < 100–200 ms / bounded memory
+
+  Log saved → C:\Users\Priyam\Documents\Temp\Projects\Latest\Zudia\testScripts\logs\stress-session-results.log
+
